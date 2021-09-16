@@ -105,6 +105,13 @@ sendback(eventName: string, data: any) {
     })
   }
 
+  createnewperson(personinfo: any) { // this is not a model.person object
+    this.http.post(`${this.baseUrl}/createnew`, {data: personinfo}).subscribe(data => {
+      console.log(data);
+      this.people.push(data as Person);
+    });
+    }
+
 
   //  endof.testHTTP
   /// =======================================================

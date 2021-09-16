@@ -24,7 +24,7 @@ export class EditComponent implements OnInit {
   }
 
   CreatePerson() {
-    // this.ldata.createperson(this.newperson);
+    this.ldata.createnewperson(this.newperson);
   }
 
   sortby(row: number) {
