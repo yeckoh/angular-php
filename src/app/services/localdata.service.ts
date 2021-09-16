@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 // import { Readable, Stream } from 'stream';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Person } from '../models/person.model';
 
 // export interface person {
 //   name: string;
@@ -81,10 +82,12 @@ sendback(eventName: string, data: any) {
   //  testHTTP
   baseUrl = 'http://phpbackserv/api';
 
+  people: Person[] = [];
 
   getall() {
     this.http.get(`${this.baseUrl}/getall`).subscribe(data => {
-      console.log(data);
+      this.people.length = 0;
+      this.people = data as Person[];
     });
   }
 
@@ -94,11 +97,29 @@ sendback(eventName: string, data: any) {
     });
   }
 
+  readsearch(filter: any) {
+    this.http.get(`${this.baseUrl}/getsearch`, {context: filter}).subscribe(data => {
+      console.log(data);
+      this.people.length = 0;
+      this.people = data as unknown as Person[];
+    })
+  }
+
 
   //  endof.testHTTP
   /// =======================================================
   /// =======================================================
-  //  devChara
+  //  frontfunctions
+
+  sortpeople(row: number) {
+    switch (row) {
+      case 1: this.people.sort((a, b) => (a.fname < b.fname ? -1 : 1)); break;
+      case 2: this.people.sort((a, b) => (a.lname < b.lname ? -1 : 1)); break;
+      case 3: this.people.sort((a, b) => (a.addr < b.addr ? -1 : 1)); break;
+      case 4: this.people.sort((a, b) => (a.city < b.city ? -1 : 1)); break;
+      default: this.people.sort((a, b) => (b._id - a._id)); break;
+    }
+  }
 
 
     // this.simpleDialog.open(SimpleDialog, {data: data}).afterClosed().subscribe(data => {
@@ -107,7 +128,7 @@ sendback(eventName: string, data: any) {
     // });
 
 
-  //  endof.devClass
+  //  endof.frontfunctions
   /// =======================================================
   /// =======================================================
   //  localStorage

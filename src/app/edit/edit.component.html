@@ -5,23 +5,15 @@
         <table>
             <tr>
                 <td>
-                    <button mat-flat-button color='accent' (click)="requestread()">READ all</button>
-                </td>
-                <td>
-                    <button mat-flat-button color='primary' (click)='readbysearch()'>Search</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     <mat-form-field appearance="fill" style='width: 8rem;'>
                         <mat-label>First Name</mat-label>
-                        <input matInput placeholder="john" [(ngModel)]='searchby.fname'>
+                        <input matInput placeholder="john" [(ngModel)]='newperson.fname'>
                       </mat-form-field>            
                 </td>
                 <td>
                     <mat-form-field appearance="fill" style='width: 8rem;'>
                         <mat-label>Last Name</mat-label>
-                        <input matInput placeholder="doe" [(ngModel)]='searchby.lname'>
+                        <input matInput placeholder="doe" [(ngModel)]='newperson.lname'>
                       </mat-form-field>            
                 </td>
             </tr>
@@ -29,7 +21,7 @@
                 <td colspan='2'>
                     <mat-form-field appearance="fill" style='width: 16rem;'>
                         <mat-label>Address</mat-label>
-                        <input matInput placeholder="123 candy lane" [(ngModel)]='searchby.addr'>
+                        <input matInput placeholder="123 candy lane" [(ngModel)]='newperson.addr'>
                       </mat-form-field>
                 </td>
             </tr>
@@ -37,8 +29,13 @@
                 <td colspan='2'>
                     <mat-form-field appearance="fill" style='width: 16rem;'>
                         <mat-label>City</mat-label>
-                        <input matInput placeholder="North Pole" [(ngModel)]='searchby.city'>
+                        <input matInput placeholder="North Pole" [(ngModel)]='newperson.city'>
                       </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td colspan='2'>
+                    <button mat-raised-button color='accent' class='maxwidth'>Create new person</button>
                 </td>
             </tr>
         </table>
@@ -57,7 +54,6 @@
                 <th><button mat-raised-button (click)='sortby(2)' class='maxwidth'>Last</button></th>
                 <th><button mat-raised-button (click)='sortby(3)' class='maxwidth'>Addr</button></th>
                 <th><button mat-raised-button (click)='sortby(4)' class='maxwidth'>City</button></th>
-                <th><label class='maxwidth'>Picture</label></th>
             </tr>
             <tr *ngFor='let item of ldata.people'>
                 <td>{{item._id}}</td>
@@ -65,7 +61,6 @@
                 <td>{{item.lname}}</td>
                 <td>{{item.addr}}</td>
                 <td>{{item.city}}</td>
-                <td><button mat-flat-button>view</button></td>
             </tr>
         </table>
         </div>

@@ -10,11 +10,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { LocaldataService } from './services/localdata.service';
 import { PeopleComponent } from './people/people.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PeopleComponent
+    PeopleComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,
