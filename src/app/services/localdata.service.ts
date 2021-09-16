@@ -3,6 +3,8 @@ import { WsService } from '../services/ws.service';
 // import evaluate, { registerFunction } from 'ts-expression-evaluator';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 // import { Readable, Stream } from 'stream';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 
 // export interface person {
 //   name: string;
@@ -23,7 +25,7 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 export class LocaldataService implements OnDestroy, OnInit {
 
-  constructor(private ws: WsService) {
+  constructor(private ws: WsService, private http: HttpClient) {
 
   }
   ngOnInit(): void {
@@ -34,7 +36,6 @@ export class LocaldataService implements OnDestroy, OnInit {
 
   }
 
-  // current_user = 'someone';
   colors = ['firebrick', 'tomato', 'goldenrod', 'darkorange', 'limegreen', 'forestgreen', 'mediumseagreen', 'olivedrab', 'lightseagreen', 'teal', 'dodgerblue', 'steelblue', 'darkslateblue', 'orchid', 'blueviolet', 'deeppink', 'dimgray', 'saddlebrown', 'maroon', 'black'];
   selected_color = 0;
 
@@ -61,7 +62,40 @@ export class LocaldataService implements OnDestroy, OnInit {
   }
 */
 
-  //  endof.testData
+listenfor(eventName: string) {
+  return new Observable((subscriber) => {
+    // this.sock.on(eventName, (data: any) => {
+    //   subscriber.next(data);
+    // });
+  });
+}
+
+// individual components sendback whatever emitters they specify by calling this
+sendback(eventName: string, data: any) {
+  // this.sock.emit(eventName, data);
+}
+
+
+  /// =======================================================
+  /// =======================================================
+  //  testHTTP
+  baseUrl = 'http://phpbackserv/api';
+
+
+  getall() {
+    this.http.get(`${this.baseUrl}/getall`).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  createphpgenerated() {
+    this.http.post(`${this.baseUrl}/addone`, {}).subscribe(data => {
+      console.log(data);
+    });
+  }
+
+
+  //  endof.testHTTP
   /// =======================================================
   /// =======================================================
   //  devChara

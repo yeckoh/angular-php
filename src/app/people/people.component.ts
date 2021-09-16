@@ -16,7 +16,7 @@ export class PeopleComponent implements OnInit {
 
 
   requestread() {
-
+    this.ldata.getall();
   }
 
 
