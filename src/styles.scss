@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+// font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+// body { background-color: #181818; margin: 0; font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif; color: #ffffff; }
+body { background-color: #181818; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: #ffffff; }
+/*p{ color: #ffffff;}*/
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.noscrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+// generally useful classes ------------------------------------------------------------------
+  .noclip {
+    min-width:fit-content;
+  }
+  
+  .noborder {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .toolbar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .lowalpha {
+    color: rgba(255, 255, 255, 0.333);
+  }
+  
+  .base {
+    body { background-color: #181818; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: #ffffff; }
+  }
+    
+  .borderdetection {
+    border: blanchedalmond;
+    border-width: 2px;
+    border-style: solid;
+  }
+
+  .flexdiv {
+    display: flex;
+  }
+
+// style classses ------------------------------------------------------------------
+
+    .floatingbox {
+    background-color: #222222;
+    margin: 4px;
+  }
+  
+
+
+// card class stuff ------------------------------------------------------------------
+
+
+.cardTitle {
+    padding: 6px;
+  }
+  
+  .cardDescrip {
+    padding: 4px;
+    font-size: 16px;
+    white-space: pre-wrap;
+  }
+  
+  .mat-card {
+    padding: 0px;
+    border-radius: 0px;
+    max-width: 24rem;
+  }
+
+
+.mat-select-panel {
+    max-height: 24rem !important;
+  }
+  .mat-selection-list {
+    max-height: 24rem !important;
+  }

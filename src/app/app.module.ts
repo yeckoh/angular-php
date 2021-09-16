@@ -3,16 +3,27 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MymatModule } from './mymat/mymat.module';
+import { HttpClientModule } from '@angular/common/http';
+
+import { LocaldataService } from './services/localdata.service';
+import { PeopleComponent } from './people/people.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PeopleComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MymatModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [LocaldataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
