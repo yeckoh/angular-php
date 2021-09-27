@@ -49,14 +49,14 @@ export class LocaldataService implements OnDestroy, OnInit {
     });
   }
 
-  createPHPgenerated() {
-    this.http.post(`${this.baseUrl}/addone`, {}).subscribe(data => {
-      console.log(data);
-    });
-  }
+  // createPHPgenerated() {
+  //   this.http.post(`${this.baseUrl}/addone`, {}).subscribe(data => {
+  //     console.log(data);
+  //   });
+  // }
 
   readSearch(filter: any) {
-    this.http.get(`${this.baseUrl}/getsearch`, {context: filter}).subscribe(data => {
+    this.http.get(`${this.baseUrl}/getsearch`, { context: filter }).subscribe(data => {
       console.log(data);
       this.people.length = 0;
       this.people = data as unknown as Person[];
@@ -64,12 +64,21 @@ export class LocaldataService implements OnDestroy, OnInit {
   }
 
   createNewPerson(personinfo: any) { // this is not a model.person object
-    this.http.post(`${this.baseUrl}/createnew`, {data: personinfo}).subscribe(data => {
+    let p: Person = personinfo;
+    this.http.post(`${this.baseUrl}/createnew`, { data: p }).subscribe(data => {
       console.log(data);
-      this.people.push(data as Person);
+      // get the new record with id and push onto local list of people
+      // this.people.push(data as Person);
     });
-    }
+  }
 
+  updatePerson(p: Person) {
+    return this.http.put(`${this.baseUrl}/update`, {data: p});
+  }
+
+  deletePerson(p: Person) {
+
+  }
 
   //  endof.testHTTP
   /// =======================================================

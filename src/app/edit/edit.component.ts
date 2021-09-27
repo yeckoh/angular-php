@@ -33,7 +33,9 @@ export class EditComponent implements OnInit {
   }
 
   updatePerson(p: Person) {
-    this.ldata.updatePerson(p);
+    this.ldata.updatePerson(p).subscribe(data => {
+      console.log(data); // data.success or data.error
+    });
   }
 
   deletePerson(p: Person) {
