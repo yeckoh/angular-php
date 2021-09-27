@@ -1,16 +1,8 @@
 import { Injectable, HostListener, OnDestroy, OnInit } from '@angular/core';
-import { WsService } from '../services/ws.service';
-// import evaluate, { registerFunction } from 'ts-expression-evaluator';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 // import { Readable, Stream } from 'stream';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { Person } from '../models/person.model';
-
-// export interface person {
-//   name: string;
-//   color: number;
-// }
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +18,7 @@ import { Person } from '../models/person.model';
 
 export class LocaldataService implements OnDestroy, OnInit {
 
-  constructor(private ws: WsService, private http: HttpClient) {
+  constructor(private http: HttpClient) {
 
   }
   ngOnInit(): void {
@@ -41,40 +33,6 @@ export class LocaldataService implements OnDestroy, OnInit {
   selected_color = 0;
 
 
-/*
-  BRACKET_EXPRESSION: RegExp = /\{([^{}]*)\}/g;
-
-  nonRegularFormula(input: string) {
-    let mutableInput = input;
-    this.BRACKET_EXPRESSION.lastIndex = 0;
-    try {
-      if (this.BRACKET_EXPRESSION.test(input)) {
-          let result;
-          this.BRACKET_EXPRESSION.lastIndex = 0; // {0} is consumed by replace, now {0} is what was {1}
-          while (result = this.BRACKET_EXPRESSION.exec(mutableInput)) {
-            mutableInput = mutableInput.replace(result[0], evaluate(result[1], this));
-            this.BRACKET_EXPRESSION.lastIndex = 0; // {0} is consumed by replace, now {0} is what was {1}
-        }} else {
-          mutableInput = input; }
-      return mutableInput;
-    } catch (error) {
-      return 'NaN';
-    }
-  }
-*/
-
-listenfor(eventName: string) {
-  return new Observable((subscriber) => {
-    // this.sock.on(eventName, (data: any) => {
-    //   subscriber.next(data);
-    // });
-  });
-}
-
-// individual components sendback whatever emitters they specify by calling this
-sendback(eventName: string, data: any) {
-  // this.sock.emit(eventName, data);
-}
 
 
   /// =======================================================
@@ -84,20 +42,20 @@ sendback(eventName: string, data: any) {
 
   people: Person[] = [];
 
-  getall() {
+  getAll() {
     this.http.get(`${this.baseUrl}/getall`).subscribe(data => {
       this.people.length = 0;
       this.people = data as Person[];
     });
   }
 
-  createphpgenerated() {
+  createPHPgenerated() {
     this.http.post(`${this.baseUrl}/addone`, {}).subscribe(data => {
       console.log(data);
     });
   }
 
-  readsearch(filter: any) {
+  readSearch(filter: any) {
     this.http.get(`${this.baseUrl}/getsearch`, {context: filter}).subscribe(data => {
       console.log(data);
       this.people.length = 0;
@@ -105,7 +63,7 @@ sendback(eventName: string, data: any) {
     })
   }
 
-  createnewperson(personinfo: any) { // this is not a model.person object
+  createNewPerson(personinfo: any) { // this is not a model.person object
     this.http.post(`${this.baseUrl}/createnew`, {data: personinfo}).subscribe(data => {
       console.log(data);
       this.people.push(data as Person);
@@ -118,7 +76,7 @@ sendback(eventName: string, data: any) {
   /// =======================================================
   //  frontfunctions
 
-  sortpeople(row: number) {
+  sortPeople(row: number) {
     switch (row) {
       case 1: this.people.sort((a, b) => (a.fname < b.fname ? -1 : 1)); break;
       case 2: this.people.sort((a, b) => (a.lname < b.lname ? -1 : 1)); break;
@@ -127,12 +85,6 @@ sendback(eventName: string, data: any) {
       default: this.people.sort((a, b) => (b._id - a._id)); break;
     }
   }
-
-
-    // this.simpleDialog.open(SimpleDialog, {data: data}).afterClosed().subscribe(data => {
-
-    //  }
-    // });
 
 
   //  endof.frontfunctions

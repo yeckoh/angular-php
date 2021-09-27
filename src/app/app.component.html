@@ -1,75 +1,66 @@
 <div class='toolbar mat-elevation-z4 sidescroll'>
-  <mat-drawer-container [hasBackdrop]="true"  style='height: 100vh'>
-      <mat-drawer #drawer>Theres no content here!</mat-drawer>
-      <mat-drawer-content class='noscrollbar'>
-  <div [style.background-color]="ldata.colors[ldata.selected_color]" style='min-height: 84px;'>
-    <table>
-      <tr>
-          <td>
-          <!-- <button mat-button (click)='ldata.updatelocalstorage()'
-              matTooltip='manually save your profile settings'
-              [matTooltipShowDelay]="400"
-              [matTooltipHideDelay]="300">
-              <mat-icon>save</mat-icon>
-          </button> -->
-              <button mat-button (click)="drawer.toggle()"><mat-icon>list</mat-icon> </button>
-          </td>
-    
-      <!-- <td>
-        <mat-form-field>
-          <input matInput style='font-size: 28px;' [(ngModel)]="ldata.current_user" placeholder='名前'>
-        </mat-form-field>
-      </td> -->
-      <td>
-        <mat-form-field>
-          <mat-label>色</mat-label>
-          <mat-select [(value)]='ldata.selected_color'>
-            <mat-option value=0 style='height: 100%; color:firebrick;'>firebrick</mat-option>
-            <mat-option value=1 style='height: 100%; color:tomato;'>tomato</mat-option>
-            <mat-option value=2 style='height: 100%; color:goldenrod;'>goldenrod</mat-option>
-            <mat-option value=3 style='height: 100%; color:darkorange;'>darkorange</mat-option>
-            <mat-option value=4 style='height: 100%; color:limegreen;'>limegreen</mat-option>
-            <mat-option value=5 style='height: 100%; color:forestgreen;'>forestgreen</mat-option>
-            <mat-option value=6 style='height: 100%; color:mediumseagreen;'>mediumseagreen</mat-option>
-            <mat-option value=7 style='height: 100%; color:olivedrab;'>olivedrab</mat-option>
-            <mat-option value=8 style='height: 100%; color:lightseagreen;'>lightseagreen</mat-option>
-            <mat-option value=9 style='height: 100%; color:teal;'>teal</mat-option>
-            <mat-option value=10 style='height: 100%; color:dodgerblue;'>dodgerblue</mat-option>
-            <mat-option value=11 style='height: 100%; color:steelblue;'>steelblue</mat-option>
-            <!-- <mat-option value=12 style='height: 100%; color:midnightblue;'>midnightblue</mat-option> -->
-            <mat-option value=12 style='height: 100%; color:darkslateblue;'>darkslateblue</mat-option>
-            <mat-option value=13 style='height: 100%; color:orchid;'>orchid</mat-option>
-            <mat-option value=14 style='height: 100%; color:blueviolet;'>blueviolet</mat-option>
-            <mat-option value=15 style='height: 100%; color:deeppink;'>deeppink</mat-option>
-            <mat-option value=16 style='height: 100%; color:dimgray;'>dimgray</mat-option>
-            <mat-option value=17 style='height: 100%; color:saddlebrown;'>saddlebrown</mat-option>
-            <mat-option value=18 style='height: 100%; color:maroon;'>maroon</mat-option>
-            <mat-option value=19 style='height: 100%; color:black;'>white</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </td>
-    </tr>
-    </table>
+  <mat-drawer-container [hasBackdrop]="true" style='height: 100vh'>
+    <mat-drawer #drawer>Theres no content here!</mat-drawer>
+    <mat-drawer-content class='noscrollbar'>
+      <div [style.background-color]="ldata.colors[ldata.selected_color]" style='min-height: 84px;'>
+        <table>
+          <tr>
+            <td>
+              <button mat-button (click)="drawer.toggle()">
+                <mat-icon>list</mat-icon>
+              </button>
+            </td>
 
-      <mat-tab-group dynamicHeight="true" style="height:auto; width:auto;" mat-stretch-tabs>
-      <!--  dynamicHeight="true" style="height:auto; width:100vw;" mat-stretch-tabs -->
+            <td>
+              <mat-form-field>
+                <mat-label>色</mat-label>
+                <mat-select [(value)]='ldata.selected_color'>
+                  <mat-option value=0 style='height: 100%; color:firebrick;'>firebrick</mat-option>
+                  <mat-option value=1 style='height: 100%; color:tomato;'>tomato</mat-option>
+                  <mat-option value=2 style='height: 100%; color:goldenrod;'>goldenrod</mat-option>
+                  <mat-option value=3 style='height: 100%; color:darkorange;'>darkorange</mat-option>
+                  <mat-option value=4 style='height: 100%; color:limegreen;'>limegreen</mat-option>
+                  <mat-option value=5 style='height: 100%; color:forestgreen;'>forestgreen</mat-option>
+                  <mat-option value=6 style='height: 100%; color:mediumseagreen;'>mediumseagreen</mat-option>
+                  <mat-option value=7 style='height: 100%; color:olivedrab;'>olivedrab</mat-option>
+                  <mat-option value=8 style='height: 100%; color:lightseagreen;'>lightseagreen</mat-option>
+                  <mat-option value=9 style='height: 100%; color:teal;'>teal</mat-option>
+                  <mat-option value=10 style='height: 100%; color:dodgerblue;'>dodgerblue</mat-option>
+                  <mat-option value=11 style='height: 100%; color:steelblue;'>steelblue</mat-option>
+                  <!-- <mat-option value=12 style='height: 100%; color:midnightblue;'>midnightblue</mat-option> -->
+                  <mat-option value=12 style='height: 100%; color:darkslateblue;'>darkslateblue</mat-option>
+                  <mat-option value=13 style='height: 100%; color:orchid;'>orchid</mat-option>
+                  <mat-option value=14 style='height: 100%; color:blueviolet;'>blueviolet</mat-option>
+                  <mat-option value=15 style='height: 100%; color:deeppink;'>deeppink</mat-option>
+                  <mat-option value=16 style='height: 100%; color:dimgray;'>dimgray</mat-option>
+                  <mat-option value=17 style='height: 100%; color:saddlebrown;'>saddlebrown</mat-option>
+                  <mat-option value=18 style='height: 100%; color:maroon;'>maroon</mat-option>
+                  <mat-option value=19 style='height: 100%; color:black;'>white</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+          </tr>
+        </table>
+
+        <mat-tab-group dynamicHeight="true" style="height:auto; width:auto;" mat-stretch-tabs>
+          <!--  dynamicHeight="true" style="height:auto; width:100vw;" mat-stretch-tabs -->
           <mat-tab label='Directory'>
-              <div style='background-color: #181818;'>
-                <app-people></app-people>
-              </div>
-            </mat-tab>
+            <div style='background-color: #181818;'>
+              <app-people></app-people>
+            </div>
+          </mat-tab>
 
           <mat-tab label='Edit'>
-              <div style='background-color: #181818;'>
-                <app-edit></app-edit>
-              </div>
-            </mat-tab>
+            <div style='background-color: #181818;'>
+              <app-edit></app-edit>
+            </div>
+          </mat-tab>
 
 
-      </mat-tab-group>
+        </mat-tab-group>
 
-  </div>
-  </mat-drawer-content>
-</mat-drawer-container>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
 
 </div>

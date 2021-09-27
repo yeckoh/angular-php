@@ -15,7 +15,7 @@ export class EditComponent implements OnInit {
 
 
 
-  newperson = {
+  newPerson = {
     fname: '',
     lname: '',
     addr: '',
@@ -23,12 +23,12 @@ export class EditComponent implements OnInit {
     img: undefined
   }
 
-  CreatePerson() {
-    this.ldata.createnewperson(this.newperson);
+  createPerson() {
+    this.ldata.createNewPerson(this.newPerson);
   }
 
-  sortby(row: number) {
-    this.ldata.sortpeople(row);
+  sortBy(row: number) {
+    this.ldata.sortPeople(row);
   }
 
 

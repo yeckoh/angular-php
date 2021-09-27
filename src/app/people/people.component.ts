@@ -13,23 +13,23 @@ export class PeopleComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  searchby = {
+  searchBy = {
   fname: '',
   lname: '',
   addr: '',
   city: '',
   }
 
-  requestread() {
-    this.ldata.getall();
+  requestRead() {
+    this.ldata.getAll();
   }
 
-  sortby(row: number) {
-    this.ldata.sortpeople(row);
+  sortBy(row: number) {
+    this.ldata.sortPeople(row);
   }
 
-  readbysearch() {
-    this.ldata.readsearch(this.searchby);
+  readBySearch() {
+    this.ldata.readSearch(this.searchBy);
   }
 
 }
