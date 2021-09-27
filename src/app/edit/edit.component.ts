@@ -39,7 +39,9 @@ export class EditComponent implements OnInit {
   }
 
   deletePerson(p: Person) {
-    console.log(p);
+    this.ldata.deletePerson(p).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }

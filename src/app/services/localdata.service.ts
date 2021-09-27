@@ -1,7 +1,7 @@
 import { Injectable, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 // import { Readable, Stream } from 'stream';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Person } from '../models/person.model';
 
 @Injectable({
@@ -77,7 +77,8 @@ export class LocaldataService implements OnDestroy, OnInit {
   }
 
   deletePerson(p: Person) {
-
+    let param = new HttpParams().set('id', p._id);
+    return this.http.delete(`${this.baseUrl}/delete`, {params: param});
   }
 
   //  endof.testHTTP
