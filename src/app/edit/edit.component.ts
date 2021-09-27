@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Person } from '../models/person.model';
 import { LocaldataService } from '../services/localdata.service';
 
 @Component({
@@ -31,5 +32,12 @@ export class EditComponent implements OnInit {
     this.ldata.sortPeople(row);
   }
 
+  updatePerson(p: Person) {
+    this.ldata.updatePerson(p);
+  }
+
+  deletePerson(p: Person) {
+    console.log(p);
+  }
 
 }

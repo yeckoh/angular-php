@@ -55,12 +55,45 @@
                 <th><button mat-raised-button (click)='sortBy(3)' class='maxwidth'>Addr</button></th>
                 <th><button mat-raised-button (click)='sortBy(4)' class='maxwidth'>City</button></th>
             </tr>
-            <tr *ngFor='let item of ldata.people'>
+            <!-- <tr *ngFor='let item of ldata.people'>
                 <td>{{item._id}}</td>
                 <td>{{item.fname}}</td>
                 <td>{{item.lname}}</td>
                 <td>{{item.addr}}</td>
                 <td>{{item.city}}</td>
+            </tr> -->
+            <tr *ngFor='let item of ldata.people'>
+                <td>{{item._id}}</td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>First</mat-label>
+                        <input matInput [(ngModel)]='item.fname'>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Last</mat-label>
+                        <input matInput [(ngModel)]='item.lname'>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>Address</mat-label>
+                        <input matInput [(ngModel)]='item.addr'>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field>
+                        <mat-label>City</mat-label>
+                        <input matInput [(ngModel)]='item.city'>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <button mat-raised-button (click)='updatePerson(item)' color='primary'>Update</button>
+                </td>
+                <td>
+                    <button mat-raised-button (click)='deletePerson(item)' color='warn'>Delete</button>
+                </td>
             </tr>
         </table>
     </div>
